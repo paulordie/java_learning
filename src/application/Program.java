@@ -1,5 +1,6 @@
 package application;
 
+import entities.Product;
 import entities.Triangle;
 
 import java.util.Locale;
@@ -9,35 +10,35 @@ public class Program {
     public static void main(String[] args){
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        Triangle x, y;
-        x = new Triangle();
-        y = new Triangle();
 
+        Product product = new Product();
+        System.out.println("Entrada do nome do produto: ");
+        System.out.print("Nome do produto: ");
+        product.name = sc.nextLine();
+        System.out.print("Preço do produto ou produtos: ");
+        product.price = sc.nextDouble();
+        System.out.print("Quantidade de produtos disponíveis: ");
+        product.quantity = sc.nextInt();
+        System.out.println("Sem o toString" + product);
+        System.out.println("com toStringdaMinhaClass"+product.toString());
+        System.out.println(product.name + ", " + product.price +", " + product.quantity);
 
-        System.out.println("Enter de measures of triangle X is : ");
+        System.out.println("Adicionando produtos ao stock: ");
+        int quantity = sc.nextInt();
+        System.out.println("Valor adicionado: "+ product.valueAddSub(quantity,product.price));
+        product.addProduct(quantity);
+        System.out.println("Quantidade adicionado de produtos: "+ quantity);
+        System.out.println("Total Adicionado: "+product.name + ", " + product.price +", " + product.quantity);
+        System.out.println(product);
 
-        x.a = sc.nextDouble();
-        x.b = sc.nextDouble();
-        x.c = sc.nextDouble();
+        System.out.println("Retirando Produtos: ");
+        int retirando = sc.nextInt();
+        System.out.println("Valor retirado: "+ product.valueAddSub(retirando,product.price));
+        product.removeProduct(retirando);
+        System.out.println("Quantidade retirada: "+ retirando);
+        System.out.println("Retirando o produto: "+product.name + ", " + product.price +", " + product.quantity);
+        System.out.println(product);
 
-        System.out.println("Enter de measures of triangle Y is : ");
-
-        y.a= sc.nextDouble();
-        y.b = sc.nextDouble();
-        y.c = sc.nextDouble();
-
-        double areaX = x.area();
-
-        double areaY = y.area();
-
-        System.out.printf("area of traingle X is:%.4f%n", areaX);
-        System.out.printf("area of traingle Y is:%.4f%n", areaY);
-
-        if (areaX > areaY){
-            System.out.println("area of X is Bigger than Y");
-        } else {
-            System.out.println("area of Y is Bigger than X");
-        }
         sc.close();
 
     }
