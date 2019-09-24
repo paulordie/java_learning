@@ -2,44 +2,38 @@ package application;
 
 import entities.Product;
 import entities.Triangle;
+import util.Calculator;
 
 import java.util.Locale;
 import java.util.Scanner;
 
+
 public class Program {
+
+//    public static final double PI = 3.14159; ;// final diz que o valor vai permanecer e nao vai mudar
+
     public static void main(String[] args){
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        Calculator calc = new Calculator();
+        System.out.println("Enter Radius: ");
+        double radius = sc.nextDouble();
 
-        Product product = new Product();
-        System.out.println("Entrada do nome do produto: ");
-        System.out.print("Nome do produto: ");
-        product.name = sc.nextLine();
-        System.out.print("Preço do produto ou produtos: ");
-        product.price = sc.nextDouble();
-        System.out.print("Quantidade de produtos disponíveis: ");
-        product.quantity = sc.nextInt();
-        System.out.println("Sem o toString" + product);
-        System.out.println("com toStringdaMinhaClass"+product.toString());
-        System.out.println(product.name + ", " + product.price +", " + product.quantity);
+        double c = calc.circunference(radius);
+        double v = calc.volume(radius);
 
-        System.out.println("Adicionando produtos ao stock: ");
-        int quantity = sc.nextInt();
-        System.out.println("Valor adicionado: "+ product.valueAddSub(quantity,product.price));
-        product.addProduct(quantity);
-        System.out.println("Quantidade adicionado de produtos: "+ quantity);
-        System.out.println("Total Adicionado: "+product.name + ", " + product.price +", " + product.quantity);
-        System.out.println(product);
+        System.out.printf("circunferencia é :%.2f%n", c);
+        System.out.printf("volume é :%.2f%n", v);
 
-        System.out.println("Retirando Produtos: ");
-        int retirando = sc.nextInt();
-        System.out.println("Valor retirado: "+ product.valueAddSub(retirando,product.price));
-        product.removeProduct(retirando);
-        System.out.println("Quantidade retirada: "+ retirando);
-        System.out.println("Retirando o produto: "+product.name + ", " + product.price +", " + product.quantity);
-        System.out.println(product);
+        System.out.printf("PI é: %.2f%n", calc.PI);
 
         sc.close();
-
     }
+//    public static double circunference(double radius){
+//        return 2.0 * PI * radius;
+//    }
+//
+//    public static double volume(double radius){
+//        return 4.0 * PI * radius * radius * radius / 3.0;
+//    }
 }
