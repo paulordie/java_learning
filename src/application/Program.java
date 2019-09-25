@@ -22,16 +22,16 @@ public class Program {
         System.out.print("Preço do produto ou produtos: ");
         double price = sc.nextDouble();
         System.out.print("Quantidade de produtos disponíveis: ");
-        int quantity = sc.nextInt();
 
-        Product product = new Product(name, price, quantity);
+
+        Product product = new Product(name, price);
 
         System.out.println("Sem o toString" + product);
         System.out.println("com toStringdaMinhaClass" + product.toString());
         System.out.println(product.name + ", " + product.price + ", " + product.quantity);
 
         System.out.println("Adicionando produtos ao stock: ");
-        quantity = sc.nextInt();
+        int quantity = sc.nextInt();
         System.out.println("Valor adicionado: " + product.valueAddSub(quantity, product.price));
         product.addProduct(quantity);
         System.out.println("Quantidade adicionado de produtos: " + quantity);

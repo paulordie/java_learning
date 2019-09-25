@@ -6,10 +6,19 @@ public class Product {
     public double price;
     public int quantity;
 
+    public Product(){
+
+    }
+
     public Product(String name, double price, int quantity){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public Product(String name, double price){
+        this.name = name;
+        this.price = price;
     }
 
     public double totalValueInStock(){
@@ -21,7 +30,11 @@ public class Product {
     }
 
     public void removeProduct(int quantity){
-        this.quantity -= quantity;
+        if(this.quantity < 0 && this.price < 0) {
+            System.out.printf("A quantidade e o valor não podem ser negativos%n"); // resolver solução para não verificar quantidade negativa
+        } else {
+            this.quantity -= quantity;
+        }
     }
 
     public String toString(){
