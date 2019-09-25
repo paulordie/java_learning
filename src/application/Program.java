@@ -26,24 +26,26 @@ public class Program {
 
         Product product = new Product(name, price);
 
+        product.setName("televisão");
+
         System.out.println("Sem o toString" + product);
         System.out.println("com toStringdaMinhaClass" + product.toString());
-        System.out.println(product.name + ", " + product.price + ", " + product.quantity);
+        System.out.println(product.getName() + ", " + product.getPrice() + ", " + product.getQuantity());
 
         System.out.println("Adicionando produtos ao stock: ");
         int quantity = sc.nextInt();
-        System.out.println("Valor adicionado: " + product.valueAddSub(quantity, product.price));
+        System.out.println("Valor adicionado: " + product.valueAddSub(quantity, product.getPrice()));
         product.addProduct(quantity);
         System.out.println("Quantidade adicionado de produtos: " + quantity);
-        System.out.println("Total Adicionado: " + product.name + ", " + product.price + ", " + product.quantity);
+        System.out.println("Total Adicionado: " + product.getName() + ", " + product.getPrice() + ", " + product.getQuantity());
         System.out.println(product);
 
         System.out.println("Retirando Produtos: ");
         int retirando = sc.nextInt();
-        System.out.println("Valor retirado: " + product.valueAddSub(retirando, product.price));
+        System.out.println("Valor retirado: " + product.valueAddSub(retirando, product.getPrice()));
         product.removeProduct(retirando);
         System.out.println("Quantidade retirada: " + retirando);
-        System.out.println("Retirando o produto: " + product.name + ", " + product.price + ", " + product.quantity);
+        System.out.println("Retirando o produto: " + product.getName() + ", " + product.getPrice() + ", " + product.getQuantity());
         System.out.println(product);
 
         sc.close();
